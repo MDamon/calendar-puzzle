@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Puzzle A Day — every solution, every date</title>
+<meta name="description" content="Every solution to the wooden calendar puzzle, for all 366 dates — plus which dates are genuinely hard.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <p class="eyebrow" id="eyebrow">Today</p>
+      <h1 id="headline">A puzzle <em>a day</em></h1>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="statCount">—</b><span>Solutions today</span></div>
+      <div class="stat"><b id="statRank">—</b><span>Difficulty rank</span></div>
+      <div class="stat"><b>24,405</b><span>Solutions in all</span></div>
+    </div>
+  </header>
+
+  <section id="pickSec">
+    <h2 class="sec">Pick a date</h2>
+    <p class="note">The bar under each button is its solution count &mdash; <strong>short and red</strong> means few ways to do it, <strong>long and green</strong> means many. Day counts are for the selected month, so they redraw when you switch months.</p>
+    <div class="pick">
+      <div class="row months" id="months" role="group" aria-label="Month"></div>
+      <div class="row days" id="days" role="group" aria-label="Day of month"></div>
+    </div>
+    <div class="verdict">
+      <span class="big" id="vCount">—</span>
+      <span class="pill" id="vPill">—</span>
+      <p id="vText">Choose a month and a day.</p>
+      <span class="scale" aria-hidden="true"><i id="vMark" style="left:0"></i></span>
+    </div>
+  </section>
+
+  <section id="solSec">
+    <h2 class="sec" id="solHead">Solutions</h2>
+    <div class="toolbar">
+      <div class="legend" id="legend"></div>
+      <button class="btn push" id="toggleLabels" aria-pressed="false">Show piece letters</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more" hidden id="moreWrap">
+      <button class="btn" id="more">Show more solutions</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">Which dates are hard</h2>
+    <p class="note">All 366 dates are solvable, but not equally. The median date has <strong>59</strong> solutions; the hardest has <strong>7</strong> and the easiest <strong>216</strong>. Click any date to load it.</p>
+    <div class="cols">
+      <div>
+        <h2 class="sec">Hardest 12</h2>
+        <table><thead><tr><th>Date</th><th style="text-align:right">Solutions</th></tr></thead>
+        <tbody id="hardest"></tbody></table>
+      </div>
+      <div>
+        <h2 class="sec">Easiest 12</h2>
+        <table><thead><tr><th>Date</th><th style="text-align:right">Solutions</th></tr></thead>
+        <tbody id="easiest"></tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">The pattern</h2>
+    <p class="note">Difficulty is driven far more by the <strong>day</strong> than the month. Days in the right-hand column (7, 14, 21, 28) and the bottom stub (29&ndash;31) sit against edges the board already has, so removing them barely changes the shape you must tile. The 6th is the worst case &mdash; interior, directly under the month block, and it strands the cells around it.</p>
+    <div class="cols">
+      <div>
+        <h2 class="sec">Average by day of month</h2>
+        <div class="bars" id="byDay"></div>
+      </div>
+      <div>
+        <h2 class="sec">Average by month</h2>
+        <div class="bars" id="byMonth"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>The board: twelve months in two rows of six, days 1&ndash;31 in rows of seven. Eight pieces &mdash; one 2&times;3 rectangle plus the pentominoes <code>L N P U V Y Z</code> &mdash; cover 41 of the 43 cells, leaving the month and the day showing. Every solution here came from exhaustive search, so each list is complete. The board carries 31 days under every month, so it can also express Feb&nbsp;30 and Apr&nbsp;31; those six non-dates are excluded from the counts and rankings, but Feb&nbsp;29 is included. Piece colours are labels for the eight shapes, not the colours on any particular physical puzzle.</p>
+    <p>Source and solver: <a href="https://github.com/MDamon/calendar-puzzle">github.com/MDamon/calendar-puzzle</a></p>
+  </footer>
+
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
