@@ -71,6 +71,20 @@ sampled.
 
 ## Notes
 
-Piece colours on the site are labels for the eight shapes; they are not the colours on any
-particular physical puzzle. Several manufacturers sell this board (DragonFruit, KUTA and
-others) with the same layout and piece set.
+Piece colours on the site match a KUTA-branded copy of the puzzle:
+
+| Block | Shape |
+|---|---|
+| yellow 2×3 | rectangle |
+| green | L |
+| navy | N |
+| sky blue | P |
+| orange-red | U |
+| black | V |
+| lemon yellow | Y |
+| deep red | Z |
+
+The two yellows and the two reds are close to each other on the real blocks, so they are
+nudged apart here for legibility. Several manufacturers sell this board (DragonFruit, KUTA
+and others) with the same layout and piece set but different colours — change the `--p-*`
+tokens at the top of `assets/styles.css` to match yours.

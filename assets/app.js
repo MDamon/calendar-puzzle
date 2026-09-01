@@ -5,8 +5,10 @@ const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov
 const MONTH_LONG = ["January","February","March","April","May","June",
                     "July","August","September","October","November","December"];
 const PIECES = ["R","L","N","P","U","V","Y","Z"];
-const PIECE_NAME = {R:"2×3", L:"L", N:"N", P:"P", U:"U", V:"V", Y:"Y", Z:"Z"};
-const LIGHT_PIECES = {R:1, P:1};          // need dark text on them
+// Named for the blocks on the physical puzzle, matched to shapes by reconstructing
+// the one arrangement consistent with the photographed board.
+const PIECE_NAME = {R:"2×3 yellow", L:"green", N:"navy", P:"sky", U:"orange", V:"black", Y:"lemon", Z:"red"};
+const LIGHT_PIECES = {R:1, P:1, Y:1};     // pale blocks — letters go dark on them
 const PAGE = 40;                          // solutions rendered per batch
 
 const W = 7, H = 7;
@@ -77,7 +79,7 @@ function renderBatch() {
     const card = document.createElement("div");
     card.className = "card";
     const h = document.createElement("h3");
-    h.innerHTML = String(i + 1).padStart(2, "0") + " <span>2×3 at " + anchorOf(current[i]) + "</span>";
+    h.innerHTML = String(i + 1).padStart(2, "0") + " <span>yellow 2×3 at " + anchorOf(current[i]) + "</span>";
     card.appendChild(h);
     card.appendChild(boardEl(current[i]));
     frag.appendChild(card);
